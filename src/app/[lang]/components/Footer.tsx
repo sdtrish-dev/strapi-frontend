@@ -12,7 +12,6 @@ const Footer = ({
   menuLinks: any[];
   categoryLinks: any[];
 }) => {
-  console.log(menuLinks, categoryLinks);
   return (
     <footer className="footer-container">
       <div className="container mx-auto flex flex-col items-center justify-between gap-8 md:flex-row">

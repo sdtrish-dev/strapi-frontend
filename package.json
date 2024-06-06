@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.5.4",
+    "@types/axios": "^0.14.0",
     "@types/negotiator": "^0.6.3",
     "@types/qs": "^6.9.15",
+    "axios": "^1.7.2",
     "classnames": "^2.5.1",
     "negotiator": "^0.6.3",
     "next": "^14.2.3",
