@@ -6,12 +6,15 @@ const Footer = ({
   logoText,
   menuLinks,
   categoryLinks,
+  lang
 }: {
   logoUrl: string;
   logoText: string;
   menuLinks: any[];
   categoryLinks: any[];
+  lang: string;
 }) => {
+  
   return (
     <footer className="footer-container">
       <div className="container mx-auto flex flex-col items-center justify-between gap-8 md:flex-row">
@@ -39,7 +42,7 @@ const Footer = ({
             {categoryLinks.map((category) => (
               <Link
                 key={category.id}
-                href="#"
+                href={`/${lang}/categories/${category.attributes.slug}`}
                 className="footer-link"
                 prefetch={false}
               >

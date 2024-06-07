@@ -11,13 +11,12 @@ export default async function handler(
     // Fetch categories from Strapi backend
     const categoriesResponse = await axios.get(`${API_URL}/api/categories?populate=*`);
     const categories = categoriesResponse.data.data;
-    console.log('categories', categories);
 
     // Fetch posts for each category using your custom Strapi endpoint
     const categoriesWithPosts = await Promise.all(
       categories.map(async (category: any) => {
         const postsResponse = await axios.get(`${API_URL}/api/posts/category/${category.attributes.slug}`);
-        const posts = postsResponse.data;
+        const posts = postsResponse.data.data;
     
         return {
           ...category,

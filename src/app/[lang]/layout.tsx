@@ -97,26 +97,16 @@ export default async function RootLayout({
             />
           )}
         </nav>
-        <main className="dark:bg-black dark:text-gray-100 flex-grow container px-6 my-8">
-          <h1 className="md:w-1/3">{title}</h1>
-          <div className="md:w-2/3" dangerouslySetInnerHTML={{ __html: content }} />
+        <main className="dark:bg-black dark:text-gray-100 flex-grow container my-8">
+          {children}
         </main>
-        {/* {categories && (
-            <div>
-              <h2>Categories</h2>
-              <ul>
-                {categories.data.map((category: any) => (
-                  <li key={category.id}>{category.attributes.name}</li>
-                ))}
-              </ul>
-            </div>
-          )} */}
         {pageFooter && (
           <Footer
             logoUrl={footerLogoUrl}
             logoText={pageFooter.footerLogo?.logoText || ''}
             menuLinks={pageFooter.menuLinks}
             categoryLinks={pageFooter.categories.data}
+            lang={params.lang as string}
           />
         )}
       </body>
