@@ -1,5 +1,3 @@
-// ./frontend/src/app/[lang]/layout.tsx
-
 import "./globals.css";
 import { fetchAPI } from "./utils/fetch-api";
 import { i18n } from "../../../i18n-config";

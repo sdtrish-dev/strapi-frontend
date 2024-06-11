@@ -1,33 +1,37 @@
 'use client';
 
-import React, { useEffect, useState, useCallback } from 'react'; 
+import React, { useEffect, useState, useCallback } from 'react';
 import { useParams } from 'next/navigation';
-import axios from 'axios';
+import { fetchAPI } from "../../utils/fetch-api";
 import Loader from './../../components/Loader';
 import styles from './CategoryPage.module.css';
+import Link from 'next/link';
 
 export default function CategoryPage() {
-  const { categoryName } = useParams(); 
+  const { categoryName } = useParams();
 
   const [isLoading, setLoading] = useState(true);
   const [categoryData, setCategoryData] = useState<any>(null);
 
   const fetchData = useCallback(async () => {
-    if (!categoryName) return; 
+    if (!categoryName) return;
 
     setLoading(true);
     try {
-      const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
-      const path = `/api/categories?filters[slug][$eq]=${categoryName}&populate=*`;
+      const path = `/categories`;
+      const urlParamsObject = {
+        filters: {
+          slug: {
+            $eq: categoryName,
+          },
+        },
+        populate: '*',
+      };
 
-      const response = await axios.get(`http://localhost:1337${path}`, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      });
-      
-      if (response.data.data.length > 0) {
-        setCategoryData(response.data.data[0]); 
+      const data = await fetchAPI(path, urlParamsObject);
+
+      if (data.data.length > 0) {
+        setCategoryData(data.data[0]);
       } else {
         setCategoryData(null);
       }
@@ -49,29 +53,28 @@ export default function CategoryPage() {
   const posts = categoryData.attributes.posts.data;
 
   if (posts.length === 0) return (
-    <>
-    <div className={styles.postsContainer}>
+    <div className={styles.container}>
       <h1 className={styles.title}>{categoryData.attributes.name}</h1>
       <div className={styles.grid}>
         <div className={styles.card}>
-        <h2 className={styles.postTitle}>No posts yet!</h2>
-        <p className={styles.description}>Coming soon...</p>
+          <h2 className={styles.postTitle}>No posts yet!</h2>
+          <p className={styles.description}>Coming soon...</p>
         </div>
       </div>
     </div>
-      
-    </>
-  ) 
+  );
 
   return (
-    <div className={styles.postsContainer}>
+    <div className={styles.container}>
       <h1 className={styles.title}>{categoryData.attributes.name}</h1>
       <div className={styles.grid}>
         {posts.map((post: any) => (
-          <div key={post.id} className={styles.card}>
-            <h2 className={styles.postTitle}>{post.attributes.title}</h2>
-            <p className={styles.description}>{post.attributes.description}</p>
-          </div>
+          <Link href={`/posts/${post.attributes.slug}`} key={post.id}>
+            <div className={styles.card}>
+              <h2 className={styles.postTitle}>{post.attributes.title}</h2>
+              <p className={styles.description}>{post.attributes.description}</p>
+            </div>
+          </Link>
         ))}
       </div>
     </div>

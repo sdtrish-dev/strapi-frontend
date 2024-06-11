@@ -2,7 +2,6 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import axios from 'axios';
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337';
-console.log('API_URL:', API_URL);
 
 export default async function handler(
   req: NextApiRequest,
@@ -12,7 +11,6 @@ export default async function handler(
     // Fetch categories from Strapi backend
     const categoriesResponse = await axios.get(`${API_URL}/api/categories?populate=*`);
     const categories = categoriesResponse.data.data;
-    console.log('categories:', categories);
 
     // Fetch posts for each category using your custom Strapi endpoint
     const categoriesWithPosts = await Promise.all(
