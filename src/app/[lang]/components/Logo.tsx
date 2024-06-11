@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Logo = ({
   logoUrl,
@@ -9,7 +10,9 @@ const Logo = ({
 }) => {
   return (
     <div className="logo-container">
-      <Image src={logoUrl} alt={logoText} width={180} height={180} />
+      <Link href='/'>
+        <Image src={logoUrl} alt={logoText} width={180} height={180} />
+      </Link>
       <p className="logo-text">{logoText}</p>
     </div>
   );

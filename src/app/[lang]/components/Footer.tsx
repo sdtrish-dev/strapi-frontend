@@ -19,7 +19,9 @@ const Footer = ({
     <footer className="footer-container">
       <div className="container mx-auto flex flex-col items-center justify-between gap-8 md:flex-row">
         <div className="footer-logo">
-          <Image src={logoUrl} width={180} height={180} alt="Company Logo" />
+          <Link href='/'>
+            <Image src={logoUrl} width={180} height={180} alt="Company Logo" />
+          </Link>
           <span className="footer-text">{logoText}</span>
         </div>
         <div className="footer-section">
