@@ -4,6 +4,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { useParams } from 'next/navigation';
 import axios from 'axios';
 import Loader from './../../components/Loader';
+import styles from './CategoryPage.module.css';
 
 export default function CategoryPage() {
   const { categoryName } = useParams(); 
@@ -49,22 +50,30 @@ export default function CategoryPage() {
 
   if (posts.length === 0) return (
     <>
-    <div>
-      <h1>{categoryData.attributes.name}</h1>
-      <div>No posts yet!</div>
+    <div className={styles.postsContainer}>
+      <h1 className={styles.title}>{categoryData.attributes.name}</h1>
+      <div className={styles.grid}>
+        <div className={styles.card}>
+        <h2 className={styles.postTitle}>No posts yet!</h2>
+        <p className={styles.description}>Coming soon...</p>
+        </div>
+      </div>
     </div>
       
     </>
   ) 
 
   return (
-    <div>
-      <h1>{categoryData.attributes.name}</h1>
-      <ul>
+    <div className={styles.postsContainer}>
+      <h1 className={styles.title}>{categoryData.attributes.name}</h1>
+      <div className={styles.grid}>
         {posts.map((post: any) => (
-          <li key={post.id}>{post.attributes.title}</li>
+          <div key={post.id} className={styles.card}>
+            <h2 className={styles.postTitle}>{post.attributes.title}</h2>
+            <p className={styles.description}>{post.attributes.description}</p>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
