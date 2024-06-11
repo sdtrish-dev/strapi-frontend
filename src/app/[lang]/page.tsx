@@ -14,7 +14,7 @@ export default function HomePage() {
       const path = `/page`;
       const urlParamsObject = {
         populate: {
-          content: "*",  // Adjust according to your Strapi content type structure
+          content: "*", 
         },
       };
       const options = { headers: { Authorization: `Bearer ${token}` } };

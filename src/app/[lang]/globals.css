@@ -142,7 +142,7 @@
 
     /* Logo Component */
     .logo-container {
-        @apply flex items-center justify-center md:gap-8 mt-4;
+        @apply flex items-center justify-center md:gap-8 mt-6;
         
     }    
     .logo-text {
