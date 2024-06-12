@@ -53,8 +53,10 @@ export default function AboutPage() {
     const heroImageUrl = getStrapiMedia({ url: heroImage });
     const heroTitle = aboutHero?.title;
 
+
     return (
         <>
+        <section className={styles.pageContainer}>
             <h1 className={styles.title}>{title}</h1>
             <Hero title={heroTitle} heroImage={heroImageUrl} />
             <div className={styles.container}>
@@ -76,6 +78,7 @@ export default function AboutPage() {
                     ))}
                 </div>
             </div>
+        </section>
         </>
     );
 };

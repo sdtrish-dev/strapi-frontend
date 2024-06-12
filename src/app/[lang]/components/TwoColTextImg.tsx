@@ -20,6 +20,8 @@ const TwoColTextImg = ({
   image: string;
   flip: boolean;
 }) => {
+  console.log(image)
+  // TO DO: get images working
   return (
     <section className="two-col-text-img-container">
       <div className={`${styles.twoCol} ${flip ? styles.flip : ''}`}>

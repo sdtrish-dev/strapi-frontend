@@ -1,6 +1,7 @@
 // create hero block with title and heroImage
 import React from 'react';
 import Image from "next/image";
+import styles from './componentStyles/Hero.module.css'
 const Hero = ({ 
     title, 
     heroImage 
@@ -11,9 +12,12 @@ const Hero = ({
 
 return (
     <section className="hero-container">
-      <div className="container mx-auto flex flex-col items-center justify-center">
+      <div className="">
+        
+        <div className={styles.hero}>
+        <Image src={heroImage} alt="Hero Image" layout="fill" objectFit="cover" />
+        </div>
         <h1 className="hero-title">{title}</h1>
-        <Image src={heroImage} width={800} height={400} alt="Hero Image"/>
       </div>
     </section>
     );
