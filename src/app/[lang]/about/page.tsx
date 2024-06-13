@@ -49,7 +49,6 @@ export default function AboutPage() {
     if (!pageData) return <div>Post not found</div>;
 
     const { title, content, aboutHero, twoColAbout } = pageData.attributes;
-    console.log(twoColAbout)
     const heroImage = aboutHero?.heroImage?.data?.attributes?.url;
     const heroImageUrl = getStrapiMedia({ url: heroImage });
     const heroTitle = aboutHero?.title;
@@ -70,6 +69,7 @@ export default function AboutPage() {
                     {twoColAbout.map((item: any) => {
                         const imageUrl = item.image?.data?.attributes?.url;
                         const fullImageUrl = getStrapiMedia({ url: imageUrl });
+                        
                         return (
                             <TwoColTextImg 
                                 key={item.id} 

@@ -1,0 +1,83 @@
+.sliderContainer {
+    padding: 2rem 0;
+    max-width: 80vw;
+    margin: 0 auto;
+}
+
+.sliderText {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.sliderImages {
+    width: 100%;
+}
+
+.imageContainer {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.image {
+    object-fit: cover;
+}
+
+.slick-slide {
+    display: inline-block;
+    height: auto;
+}
+
+.nextArrow {
+    right: -30px !important;
+    z-index: 1;
+}
+
+.prevArrow {
+    left: -40px !important;
+    z-index: 1;
+}
+
+/* Styles for screens smaller than 768px (usually mobile) */
+@media (max-width: 767px) {
+    .sliderContainer {
+        padding: 1rem 0;
+    }
+
+    .sliderText {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .imageContainer {
+        height: 300px;
+    }
+}
+
+/* Styles for screens between 768px and 1024px (usually tablet) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .sliderContainer {
+        padding: 1.5rem 0;
+        max-width: 60vw;
+        margin: 0 auto;
+    }
+
+    .sliderText {
+        font-size: 1.75rem;
+    }
+
+    .imageContainer {
+        height: 400px;
+    }
+}

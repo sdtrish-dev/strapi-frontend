@@ -175,3 +175,9 @@
     .footer-link {
         @apply text-sm text-gray-700 hover:underline dark:text-gray-300;
     }
+
+    #imageSlider .slick-slider .slick-prev:before,
+    #imageSlider .slick-slider .slick-next:before {
+        font-size: 2rem;
+        color: black;
+    }
