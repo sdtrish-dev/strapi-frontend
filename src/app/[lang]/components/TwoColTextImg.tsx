@@ -20,19 +20,18 @@ const TwoColTextImg = ({
   image: string;
   flip: boolean;
 }) => {
-  console.log(image)
-  // TO DO: get images working
+
   return (
-    <section className="two-col-text-img-container">
-      <div className={`${styles.twoCol} ${flip ? styles.flip : ''}`}>
-        <div className={styles.text}>
+    <section className={styles.twoColTextImgContainer}>
+      <div className={`${styles.twoColFlip} ${flip ? styles.flip : ''}`}>
+        <div className={styles.twoColText}>
             <h2>{title}</h2>
             <p>{description}</p>
             {content.map((contentItem, index) => (
                 <p key={index}>{contentItem.children[0].text}</p>
             ))}
         </div>
-        <div className={styles.image}>
+        <div className={styles.twoColImage}>
             <Image src={image} width={800} height={400} alt="Two Col Image" />
         </div>
       </div>

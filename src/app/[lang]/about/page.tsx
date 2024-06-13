@@ -49,6 +49,7 @@ export default function AboutPage() {
     if (!pageData) return <div>Post not found</div>;
 
     const { title, content, aboutHero, twoColAbout } = pageData.attributes;
+    console.log(twoColAbout)
     const heroImage = aboutHero?.heroImage?.data?.attributes?.url;
     const heroImageUrl = getStrapiMedia({ url: heroImage });
     const heroTitle = aboutHero?.title;
@@ -59,23 +60,27 @@ export default function AboutPage() {
         <section className={styles.pageContainer}>
             <h1 className={styles.title}>{title}</h1>
             <Hero title={heroTitle} heroImage={heroImageUrl} />
-            <div className={styles.container}>
+            <div className={styles.contentContainer}>
                 <div>
                     {content.split('\n').map((paragraph: string, index: any) => (
                         <p key={index}>{paragraph}</p>
                     ))}
                 </div>
-                <div className={styles.grid}>
-                    {twoColAbout.map((item: any) => (
-                        <TwoColTextImg 
-                            key={item.id} 
-                            title={item.title} 
-                            description={item.description} 
-                            content={item.content} 
-                            image={item.image} 
-                            flip={item.flip} 
-                        />
-                    ))}
+                <div className={styles.twoCol}>
+                    {twoColAbout.map((item: any) => {
+                        const imageUrl = item.image?.data?.attributes?.url;
+                        const fullImageUrl = getStrapiMedia({ url: imageUrl });
+                        return (
+                            <TwoColTextImg 
+                                key={item.id} 
+                                title={item.title} 
+                                description={item.description} 
+                                content={item.content} 
+                                image={fullImageUrl} 
+                                flip={item.flip} 
+                            />
+                        );
+                    })}
                 </div>
             </div>
         </section>

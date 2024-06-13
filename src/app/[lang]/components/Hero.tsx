@@ -11,13 +11,12 @@ const Hero = ({
 }) => {
 
 return (
-    <section className="hero-container">
-      <div className="">
-        
-        <div className={styles.hero}>
+    <section className={styles.hero}>
+      <div>
+        <div className={styles.heroImage}>
         <Image src={heroImage} alt="Hero Image" layout="fill" objectFit="cover" />
         </div>
-        <h1 className="hero-title">{title}</h1>
+        <h1 className={styles.heroTitle}>{title}</h1>
       </div>
     </section>
     );
