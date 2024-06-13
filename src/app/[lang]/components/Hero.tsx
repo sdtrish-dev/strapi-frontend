@@ -1,4 +1,3 @@
-// create hero block with title and heroImage
 import React from 'react';
 import Image from "next/image";
 import styles from './componentStyles/Hero.module.css'

@@ -1,4 +1,3 @@
-// title, description, content, image and flip (boolean) are the props for TwoColTextImg component.
 import React from 'react';
 import Image from "next/image";
 import styles from './componentStyles/TwoColTextImg.module.css';

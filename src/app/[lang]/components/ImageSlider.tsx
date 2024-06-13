@@ -4,13 +4,7 @@ import ReactSlider, { Settings } from "react-slick";
 import styles from './componentStyles/Slider.module.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-// Assuming getStrapiMedia is a utility function that returns the full URL of the image
-const getStrapiMedia = ({ url }: { url: string }) => {
-  // Update this according to your Strapi setup
-  return `${process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337"}${url}`;
-};
-
+import { getStrapiMedia } from "../utils/api-helpers";
 interface ArrowProps {
   className?: string;
   style?: React.CSSProperties;
