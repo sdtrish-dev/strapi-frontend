@@ -1,0 +1,23 @@
+.contactContainer {
+    display: flex;
+    flex-direction: column;
+    margin: .5rem .5rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.content {
+    padding: 0 1rem 1rem 0rem;
+}
+
+@media screen and (max-width: 768px) {
+    .title {
+        text-align: left;
+    }
+
+}

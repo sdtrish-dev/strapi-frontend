@@ -14,7 +14,7 @@ const Footer = ({
   categoryLinks: any[];
   lang: string;
 }) => {
-  
+
   return (
     <footer className="footer-container">
       <div className="container mx-auto flex flex-col items-center justify-between gap-8 md:flex-row">
@@ -32,7 +32,7 @@ const Footer = ({
                 key={link.id}
                 href={link.url}
                 className="footer-link"
-                target="_blank"
+                target={link.newTab ? "_blank" : "_self"}
                 rel="noopener noreferrer"
               >
                 {link.text}

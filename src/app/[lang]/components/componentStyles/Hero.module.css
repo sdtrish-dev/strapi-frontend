@@ -1,0 +1,8 @@
+.heroImage {
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+.heroTitle {
+    padding: 1rem 0;
+}

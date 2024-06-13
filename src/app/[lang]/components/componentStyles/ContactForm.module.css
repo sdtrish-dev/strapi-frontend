@@ -1,0 +1,51 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.label {
+    margin-bottom: 15px;
+    font-family: Arial, sans-serif;
+}
+
+.input[type="text"],
+.input[type="email"],
+.input[type="tel"],
+.textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.submit {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(124 58 237);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.submit:hover {
+    background-color: rgb(124 58 199);
+}
