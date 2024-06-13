@@ -6,6 +6,7 @@ import { getStrapiMedia } from '../utils/api-helpers';
 import Loader from './../components/Loader';
 import styles from './Contact.module.css';
 import ImageSlider from '../components/ImageSlider';
+import ContactForm from '../components/ContactForm';
 
 export default function ContactPage() {
     const { slug } = useParams();
@@ -49,10 +50,13 @@ export default function ContactPage() {
 return (
   <section className={styles.contactContainer}>
     <h1 className={styles.title}>{title}</h1>
-    <div className={styles.content}>
-      {content.split('\n').map((paragraph: string, index: any) => (
-        <p key={index}>{paragraph}</p>
-      ))}
+    <div className='flex lg:flex-row flex-col gap-8'>
+      <div className={styles.content}>
+        {content.split('\n').map((paragraph: string, index: any) => (
+          <p key={index}>{paragraph}</p>
+        ))}
+      </div>
+      <ContactForm />
     </div>
     <div className={styles.slider}>
       <ImageSlider sliderImages={sliderImages} title={sliderTitle} />
